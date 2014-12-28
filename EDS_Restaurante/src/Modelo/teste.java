@@ -12,4 +12,5 @@ package Modelo;
 public class teste {
     int cod;
     int teste2;
+    int Aprendi=1;
 }
