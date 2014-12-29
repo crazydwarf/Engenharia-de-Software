@@ -6,6 +6,7 @@
 package Fronteira;
 
 import Fronteira.Garcom.NovoPedido;
+import Fronteira.Garcom.PedidosAbertos;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,7 @@ public class Principal_Garcom extends javax.swing.JFrame {
      */
     public Principal_Garcom() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -61,6 +63,11 @@ public class Principal_Garcom extends javax.swing.JFrame {
         jButton5.setFocusable(false);
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton5);
 
         jButton6.setText("Consultar Cardápio");
@@ -97,11 +104,13 @@ public class Principal_Garcom extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-         JInternalFrame internalFrame = new JInternalFrame(); 
+   
+        
+        JInternalFrame internalFrame = new JInternalFrame(); 
          internalFrame.add(new NovoPedido());
          
 //Algumas configurações gerais  
-internalFrame.setClosable(false);//Se o frame vai poder ser fechado pelo botão fechar   
+internalFrame.setClosable(true);//Se o frame vai poder ser fechado pelo botão fechar   
 internalFrame.setIconifiable(false);//Se o frame vai poder ser minimizado.  
 internalFrame.setResizable(false);//Pemite editar o tamanho.  
   
@@ -119,6 +128,30 @@ internalFrame.setVisible(true);
        
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+                
+        JInternalFrame internalFrame = new JInternalFrame(); 
+         internalFrame.add(new PedidosAbertos());
+         
+//Algumas configurações gerais  
+internalFrame.setClosable(true);//Se o frame vai poder ser fechado pelo botão fechar   
+internalFrame.setIconifiable(false);//Se o frame vai poder ser minimizado.  
+internalFrame.setResizable(false);//Pemite editar o tamanho.  
+  
+PainelPrincipalGarcom.add(internalFrame);  
+  
+//Torna o seu painel interno visível  
+internalFrame.setSize(400,400);
+        try {
+            internalFrame.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Principal_Garcom.class.getName()).log(Level.SEVERE, null, ex);
+        }
+internalFrame.setVisible(true);  
+         
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
